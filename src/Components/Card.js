@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react"; // Removed useEffect since it's not used
 import profile from "../Assets/profile.png";
 import profile1 from "../Assets/profile1.png";
 import profile4 from "../Assets/profile4.jpeg";
@@ -24,14 +24,14 @@ const Card = ({
     <div className="card">
       <div className="card-header">
         <div className="status-heading">
-          {grouping == "users" || grouping == "priority" ? (
-            statusMapping[id] == "Todo" ? (
+          {grouping === "users" || grouping === "priority" ? (
+            statusMapping[id] === "Todo" ? (
               <i className="bx bx-circle" id="todo"></i>
-            ) : statusMapping[id] == "In progress" ? (
+            ) : statusMapping[id] === "In progress" ? (
               <i className="bx bx-adjust" id="progress"></i>
-            ) : statusMapping[id] == "Backlog" ? (
+            ) : statusMapping[id] === "Backlog" ? (
               <i className="bx bx-task-x" id="backlog"></i>
-            ) : statusMapping[id] == "Done" ? (
+            ) : statusMapping[id] === "Done" ? (
               <i className="bx bxs-check-circle" id="done"></i>
             ) : (
               <i className="bx bxs-x-circle" id="cancel"></i>
@@ -39,7 +39,7 @@ const Card = ({
           ) : null}
           <p>{id}</p>
         </div>
-        {grouping != "users" ? (
+        {grouping !== "users" ? (
           <div
             className={
               user && !user.available
@@ -49,15 +49,15 @@ const Card = ({
           >
             <img
               src={
-                userId == "usr-1"
+                userId === "usr-1"
                   ? profile1
-                  : userId == "usr-2"
+                  : userId === "usr-2"
                   ? profile6
-                  : userId == "usr-3"
+                  : userId === "usr-3"
                   ? profile7
-                  : userId == "usr-4"
+                  : userId === "usr-4"
                   ? profile5
-                  : userId == "usr-5"
+                  : userId === "usr-5"
                   ? profile4
                   : profile
               }
@@ -75,15 +75,15 @@ const Card = ({
         <p>{title}</p>
       </div>
       <div className="card-footer">
-        {grouping != "priority" ? (
+        {grouping !== "priority" ? (
           <div className="feature-container">
-            {priority == "0" ? (
+            {priority === "0" ? (
               <i className="bx bx-dots-horizontal-rounded"></i>
-            ) : priority == "1" ? (
+            ) : priority === "1" ? (
               <i className="bx bx-signal-2"></i>
-            ) : priority == "2" ? (
+            ) : priority === "2" ? (
               <i className="bx bx-signal-3"></i>
-            ) : priority == "3" ? (
+            ) : priority === "3" ? (
               <i className="bx bx-signal-4"></i>
             ) : (
               <i className="bx bxs-message-square-error"></i>
